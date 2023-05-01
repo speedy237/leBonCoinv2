@@ -13,14 +13,14 @@ public class Annonce {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
-	private long idAnnonce;
+	private int idAnnonce;
 	@Column
 	private String title;
 	@Column
 	private String description;
-	@Column 
+	@Column(columnDefinition = "Date") 
 	private Date create_at;
-	@Column
+	@Column(columnDefinition = "Date") 
 	private Date update_at;
 	@Column
 	private boolean avability;
@@ -67,12 +67,12 @@ public class Annonce {
 
 
 
-	public long getIdAnnonce() {
+	public int getIdAnnonce() {
 		return idAnnonce;
 	}
 
 
-	public void setIdAnnonce(long idAnnonce) {
+	public void setIdAnnonce(int idAnnonce) {
 		this.idAnnonce = idAnnonce;
 	}
 
@@ -134,6 +134,20 @@ public class Annonce {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Annonce [idAnnonce=" + idAnnonce + ", title=" + title + ", description=" + description + ", create_at="
+				+ create_at + ", update_at=" + update_at + ", avability=" + avability + ", user=" + user + ", category="
+				+ category + "]";
+	}
+
+
+	public Long getBy() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
