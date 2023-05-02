@@ -1,6 +1,7 @@
 package com.tcorp.leboncoin.entity;
 
 import java.sql.Date;
+import java.util.Objects;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -18,9 +19,11 @@ public class Annonce {
 	private String title;
 	@Column
 	private String description;
-	@Column(columnDefinition = "Date") 
+	@Column
+	@Temporal(TemporalType.DATE)
 	private Date create_at;
-	@Column(columnDefinition = "Date") 
+	@Column
+	@Temporal(TemporalType.DATE)
 	private Date update_at;
 	@Column
 	private boolean avability;
@@ -62,9 +65,34 @@ public class Annonce {
 		this.update_at = update_at;
 		this.avability = avability;
 	}
+	
+	public Annonce() {
+		super();
+	}
+	
+	
 
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(avability, category, create_at, description, idAnnonce, title, update_at, user);
+	}
 
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Annonce other = (Annonce) obj;
+		return avability == other.avability && Objects.equals(category, other.category)
+				&& Objects.equals(create_at, other.create_at) && Objects.equals(description, other.description)
+				&& idAnnonce == other.idAnnonce && Objects.equals(title, other.title)
+				&& Objects.equals(update_at, other.update_at) && Objects.equals(user, other.user);
+	}
 
 
 	public int getIdAnnonce() {
@@ -126,16 +154,15 @@ public class Annonce {
 		this.avability = avability;
 	}
 
-
 	public User getUser() {
 		return user;
 	}
-
+	
+	
 
 	public void setUser(User user) {
 		this.user = user;
 	}
-
 
 	@Override
 	public String toString() {
@@ -150,9 +177,4 @@ public class Annonce {
 		return null;
 	}
 	
-	
-	
-	
-	
-
 }

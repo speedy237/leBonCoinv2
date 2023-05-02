@@ -26,13 +26,17 @@ public class Category {
 		this.description = description;
 	}
 
-	
-
 	public int getIdCategory() {
 		return idCategory;
 	}
+	
+	
 
 
+
+	public Category() {
+		super();
+	}
 
 	public void setIdCategory(int idCategory) {
 		this.idCategory = idCategory;
@@ -55,18 +59,5 @@ public class Category {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-
-
-	@Override
-	public String toString() {
-		return "Category [idCategory=" + idCategory + ", name=" + name + ", description=" + description + "]";
-	}
-
-
-
-	 
 	
-	
-
 }

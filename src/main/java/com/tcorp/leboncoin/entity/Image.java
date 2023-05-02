@@ -26,8 +26,9 @@ public class Image {
 	@JoinColumn(name="idAnnonce", nullable=false)
 	@JsonIgnore
 	private Annonce annonce;
-	
-	
+	public Image() {
+		super();
+	}
 	public Image(String url, Annonce annonce) {
 		super();
 		
@@ -40,7 +41,7 @@ public class Image {
 	}
 	
 	 
-	public long getIdImage() {
+	public int getIdImage() {
 		return idImage;
 	}
 	public void setIdImage(int idImage) {

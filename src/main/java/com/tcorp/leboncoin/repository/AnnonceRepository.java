@@ -7,5 +7,6 @@ import com.tcorp.leboncoin.entity.Annonce;
 @Repository
 public interface AnnonceRepository extends JpaRepository<Annonce, Integer>{
 	
+	
 
 }

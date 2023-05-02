@@ -1,4 +1,5 @@
 package com.tcorp.leboncoin.entity;
+import java.util.Objects;
 import java.util.Set;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -124,6 +125,29 @@ public class Visitor {
 		return "Visitor [nom=" + nom + ", prenom=" + prenom + ", password=" + password + ", phone=" + phone + ", email="
 				+ email + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(email, id, nom, password, phone, prenom);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Visitor other = (Visitor) obj;
+		return Objects.equals(email, other.email) && id == other.id && Objects.equals(nom, other.nom)
+				&& Objects.equals(password, other.password) && Objects.equals(phone, other.phone)
+				&& Objects.equals(prenom, other.prenom);
+	}
+	
+	
+	
+	
 
 
 

@@ -1,5 +1,7 @@
 package com.tcorp.leboncoin.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.tcorp.leboncoin.entity.Annonce;
@@ -25,22 +27,59 @@ public class AnnonceService {
 
 	public int addAnnonce(int id, int idc ,Annonce annonce ) {
 		
-	   System.out.println("hello gabok");
-	   
-	   System.out.println("idc service  "+idc);
-	   System.out.println("id  service "+id);
-	   System.out.println("annonce "+annonce.toString());
 	   User user= repoUser.findById(id).get();
-	   System.out.println("hello joyeux hjkk");
-	   System.out.println(user.toString());   
 	   annonce.setUser(user);
 	   Category cat=repoCat.findById(idc).get();
-	   System.out.println(cat.toString());
-	   annonce.setCategory(cat);
-	   System.out.println(annonce.toString());
+	  // System.out.println(cat.toString());
+	    annonce.setCategory(cat);
+	   //System.out.println(annonce.toString());
 	   return repo.save(annonce).getIdAnnonce();
 	   
 	   
 	}
+	
+	public Annonce getAnnonce(int id) {
+		return repo.findById(id).get();
+	}
+	
+	public List<Annonce> getAnnonces(){
+		return repo.findAll();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
